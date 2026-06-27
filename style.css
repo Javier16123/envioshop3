@@ -1,0 +1,287 @@
+/* ================= VARIABLES ================= */
+:root {
+    --azul-oscuro: #001338;
+    --azul-principal: #001f5b;
+    --azul-claro: #00287a;
+    --rojo-envioshop: #e3000f;
+    --gris-fondo: #f4f7f6;
+    --texto-oscuro: #2c3e50;
+    --texto-claro: #7f8c8d;
+    --blanco: #ffffff;
+    --sombra: 0 5px 20px rgba(0,0,0,0.05);
+    --sombra-hover: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* ================= GENERAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--gris-fondo);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; transition: 0.3s ease; }
+ul { list-style: none; }
+
+.titulo-seccion {
+    color: var(--azul-oscuro);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.titulo-seccion.central { text-align: center; }
+
+/* ================= HEADER / NAVEGACIÓN ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--blanco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul { display: flex; gap: 30px; }
+nav ul li a {
+    color: var(--azul-principal);
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    position: relative;
+}
+nav ul li a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background-color: var(--rojo-envioshop); transition: 0.3s;
+}
+nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
+
+/* Botones */
+.btn-contact, .btn-primary, .btn-white {
+    background-color: var(--rojo-envioshop);
+    color: var(--blanco);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-contact:hover, .btn-primary:hover { background-color: #c2000c; transform: translateY(-2px); }
+.btn-white { background: var(--blanco); color: var(--rojo-envioshop); }
+.btn-white:hover { background: #f0f0f0; }
+
+/* ================= INICIO (INDEX) ================= */
+.hero, .nosotros-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 5%;
+    background: var(--blanco);
+}
+.hero-left img, .nosotros-hero-right img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+.hero-right h1, .nosotros-hero-left h1 {
+    font-size: 3.5rem;
+    color: var(--azul-oscuro);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.hero-right h1 span, .nosotros-hero-left h1 span { color: var(--rojo-envioshop); }
+.divider { width: 80px; height: 4px; background: var(--rojo-envioshop); border: none; margin-bottom: 20px; }
+.hero-right p, .nosotros-hero-left p { font-size: 1.1rem; color: var(--texto-claro); margin-bottom: 30px; }
+
+/* Grid de Servicios Index */
+.nuestros-servicios { padding: 80px 5%; text-align: center; }
+.servicios-grid-inicio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.servicio-tarjeta {
+    background: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: 0.3s;
+}
+.servicio-tarjeta:hover { transform: translateY(-10px); box-shadow: var(--sombra-hover); }
+.servicio-img-container img { width: 100%; height: 200px; object-fit: cover; }
+.servicio-titulo { padding: 20px; color: var(--azul-oscuro); font-weight: 700; }
+
+/* Análisis Competitivo */
+.analisis-competitivo { padding: 80px 5%; background: var(--azul-oscuro); color: var(--blanco); }
+.analisis-header { text-align: center; margin-bottom: 50px; }
+.section-title { color: var(--rojo-envioshop); font-size: 1rem; letter-spacing: 2px; }
+.section-subtitle { font-size: 2.5rem; margin-bottom: 15px; }
+.section-desc { max-width: 700px; margin: 0 auto; color: #a0aec0; }
+
+.cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: var(--blanco); border-radius: 15px; padding: 30px; color: var(--texto-oscuro); box-shadow: var(--sombra); }
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+.icon-circle { width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+.icon-circle.dark-blue { background: var(--azul-claro); }
+.icon-circle.red { background: var(--rojo-envioshop); }
+.card-header h4 { font-size: 1.2rem; margin-bottom: 5px; }
+.red-text { color: var(--rojo-envioshop); font-weight: 600; font-size: 0.9rem; }
+.blue-text { color: var(--azul-principal); font-weight: 600; font-size: 0.9rem; }
+.cross-list li, .check-list li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 0.95rem; }
+.cross-list li::before { content: '✖'; position: absolute; left: 0; color: #e74c3c; font-weight: bold; }
+.check-list li::before { content: '✔'; position: absolute; left: 0; color: #2ecc71; font-weight: bold; }
+.envioshop-card { border: 3px solid var(--rojo-envioshop); transform: scale(1.05); }
+
+/* Banners */
+.banners { display: flex; flex-wrap: wrap; }
+.blue-banner { background: var(--azul-principal); color: var(--blanco); flex: 1; min-width: 300px; padding: 40px; display: grid; gap: 15px; }
+.benefit { display: flex; align-items: center; gap: 15px; font-weight: 600; }
+.red-banner { background: var(--rojo-envioshop); color: var(--blanco); flex: 1; min-width: 300px; padding: 60px 40px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; }
+
+/* ================= NOSOTROS ================= */
+.idea-revolucionaria-split { display: grid; grid-template-columns: 1fr 1fr; }
+.split-left { background: var(--azul-oscuro); color: var(--blanco); padding: 80px 5%; }
+.split-right { background: url('cajas-profesional.png') center/cover; min-height: 400px; }
+.split-left h2 { color: var(--rojo-envioshop); font-size: 2.5rem; margin-bottom: 20px; }
+.intro-text { font-size: 1.1rem; margin-bottom: 40px; color: #cbd5e1; }
+.dark-card { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid var(--rojo-envioshop); }
+.dark-card h4 { font-size: 1.2rem; margin-bottom: 10px; }
+
+/* Modelo Negocio */
+.modelo-negocio { padding: 80px 5%; background: var(--blanco); }
+.modelo-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-top: 50px; }
+.modelo-columna { flex: 1; min-width: 250px; }
+.modelo-item { margin-bottom: 30px; }
+.modelo-item h3 { color: var(--azul-principal); margin-bottom: 15px; font-size: 1.3rem; }
+.modelo-item ul li { margin-bottom: 10px; position: relative; padding-left: 20px; color: var(--texto-claro); }
+.modelo-item ul li::before { content: '•'; color: var(--rojo-envioshop); font-size: 1.5rem; position: absolute; left: 0; top: -5px; }
+
+.modelo-centro { flex: 1; display: flex; justify-content: center; }
+.circulo-grafico { width: 250px; height: 250px; background: var(--azul-principal); border-radius: 50%; position: relative; display: flex; flex-wrap: wrap; padding: 20px; animation: rotar 20s linear infinite; }
+.cuadrante { width: 50%; height: 50%; display: flex; justify-content: center; align-items: center; }
+.circulo-interno { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: var(--rojo-envioshop); border-radius: 50%; border: 5px solid var(--blanco); }
+@keyframes rotar { 100% { transform: rotate(360deg); } }
+
+/* Equipo */
+.equipo-fundador { padding: 80px 5%; }
+.equipo-descripcion { text-align: center; max-width: 700px; margin: 0 auto 50px; color: var(--texto-claro); }
+.equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+.equipo-miembro { background: var(--blanco); padding: 30px; border-radius: 20px; text-align: center; box-shadow: var(--sombra); transition: 0.3s; }
+.equipo-miembro:hover { transform: translateY(-10px); }
+.miembro-foto img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid var(--gris-fondo); }
+.equipo-miembro h3 { color: var(--azul-oscuro); font-size: 1.3rem; }
+.cargo { display: inline-block; color: var(--rojo-envioshop); font-weight: 700; margin: 10px 0; font-size: 0.9rem; letter-spacing: 1px; }
+
+/* ================= SERVICIOS ================= */
+.servicios-hero-header { background: var(--azul-oscuro); color: var(--blanco); padding: 100px 5%; text-align: center; }
+.servicios-hero-header h1 { font-size: 3rem; margin-bottom: 20px; }
+.servicios-hero-header span { color: var(--rojo-envioshop); }
+.servicios-hero-header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; color: #cbd5e1; }
+
+.por-que-envioshop { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 80px 5%; align-items: center; }
+.texto-por-que h2 { color: var(--azul-oscuro); font-size: 2.2rem; margin-bottom: 20px; }
+.imagen-por-que img { width: 100%; border-radius: 20px; box-shadow: var(--sombra); }
+
+.seccion-grid-servicios { padding: 0 5% 80px; }
+.servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.servicio-card { background: var(--blanco); padding: 40px 30px; border-radius: 15px; box-shadow: var(--sombra); text-align: center; transition: 0.3s; border-bottom: 4px solid transparent; }
+.servicio-card:hover { transform: translateY(-10px); box-shadow: var(--sombra-hover); border-color: var(--azul-principal); }
+.card-destacada { border-color: var(--rojo-envioshop); }
+.servicio-icono { width: 70px; height: 70px; background: rgba(0, 31, 91, 0.05); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; }
+.servicio-icono svg { width: 35px; height: 35px; fill: var(--azul-principal); }
+.card-destacada .servicio-icono { background: rgba(227, 0, 15, 0.1); }
+.card-destacada .servicio-icono svg { fill: var(--rojo-envioshop); }
+.servicio-card h3 { color: var(--azul-oscuro); margin-bottom: 15px; font-size: 1.3rem; }
+
+/* ================= CONTACTO (Mantenido de tu versión) ================= */
+.contacto-seccion { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
+.contacto-header { text-align: center; margin-bottom: 60px; }
+.contacto-header h1 { color: var(--azul-oscuro); font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; }
+.contacto-header h1 span { color: var(--rojo-envioshop); }
+.contacto-header p { color: var(--texto-claro); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+.contacto-contenedor { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+.info-ubicacion { background: var(--blanco); padding: 30px; border-radius: 15px; box-shadow: var(--sombra); margin-bottom: 30px; border-left: 5px solid var(--azul-principal); }
+.info-ubicacion h3 { display: flex; align-items: center; gap: 10px; color: var(--azul-principal); margin-bottom: 15px; font-size: 1.3rem; }
+.info-ubicacion .plaza { font-weight: 700; color: var(--rojo-envioshop); font-size: 0.9rem; }
+.contacto-grafico img { width: 100%; border-radius: 15px; box-shadow: var(--sombra); }
+.info-caja { background: var(--blanco); padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: var(--sombra); transition: 0.3s; display: flex; gap: 20px; }
+.info-caja:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); }
+.caja-icono { background: rgba(0, 31, 91, 0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; }
+.caja-icono svg { width: 28px; height: 28px; fill: var(--azul-principal); }
+.caja-contenido h4 { color: var(--azul-oscuro); font-size: 1.1rem; }
+.caja-contenido .dato-principal { font-size: 1.4rem; font-weight: 700; color: var(--rojo-envioshop); margin-bottom: 5px; }
+.btn-whatsapp-container { margin-top: 30px; }
+.btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 12px; background: #25D366; color: var(--blanco); padding: 18px; border-radius: 10px; font-weight: 700; font-size: 1.1rem; }
+.btn-whatsapp:hover { background: #128C7E; transform: scale(1.02); }
+.btn-whatsapp svg { width: 25px; fill: var(--blanco); }
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 900px) {
+    .hero, .nosotros-hero, .idea-revolucionaria-split, .por-que-envioshop, .contacto-contenedor { grid-template-columns: 1fr; text-align: center; }
+    nav ul { display: none; }
+    .envioshop-card { transform: scale(1); }
+    .info-caja { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ================= SECCIÓN MARCAS ALIADAS ================= */
+.marcas-aliadas {
+    background-color: var(--blanco);
+    padding: 60px 5%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 2;
+}
+
+.titulo-marcas {
+    color: var(--azul-principal);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.logos-paqueterias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logos-paqueterias img {
+    height: 45px;          /* Altura uniforme para todos los logos */
+    max-width: 160px;      /* Ancho máximo para que no se deformen */
+    object-fit: contain;   /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima del logo */
+.logos-paqueterias img:hover {
+    transform: scale(1.1);
+}
+
+/* Ajuste para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .titulo-marcas {
+        font-size: 1.5rem;
+    }
+    .logos-paqueterias {
+        gap: 25px;
+    }
+    .logos-paqueterias img {
+        height: 35px;
+    }
+}
